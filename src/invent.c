@@ -1012,6 +1012,8 @@ addinv_core0(struct obj *obj, struct obj *other_obj,
 struct obj *
 addinv(struct obj *obj)
 {
+	fully_identify_obj(obj);
+
     return addinv_core0(obj, (struct obj *) 0, TRUE);
 }
 
@@ -1019,6 +1021,8 @@ addinv(struct obj *obj)
 struct obj *
 addinv_before(struct obj *obj, struct obj *other_obj)
 {
+	fully_identify_obj(obj);
+
     return addinv_core0(obj, other_obj, TRUE);
 }
 
