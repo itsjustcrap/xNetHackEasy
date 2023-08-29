@@ -1815,7 +1815,7 @@ dosacrifice(void)
             return ECMD_TIME;
 
         if (otmp->corpsenm == PM_ACID_BLOB
-            || (gm.moves <= peek_at_iced_corpse_age(otmp) + 50)) {
+            || (gm.moves <= peek_at_iced_corpse_age(otmp) + 5000)) {
             value = mons[otmp->corpsenm].difficulty + 1;
             if (otmp->oeaten)
                 value = eaten_stat(value, otmp);
