@@ -1164,15 +1164,17 @@ DISABLE_WARNING_FORMAT_NONLITERAL
 static void
 eye_of_newt_buzz(struct permonst *ptr)
 {
-    if (rn2(3) || 3 * u.uen <= 2 * u.uenmax) {
+//    if (rn2(3) || 3 * u.uen <= 2 * u.uenmax) {
         int old_uen = u.uen, old_uenmax = u.uenmax;
-        u.uen += rnd(max(ptr->mlevel, 3));
+        // always bump nrg on newt eat,
+        // but reduce bump value
+        u.uen += 1;
         if (u.uen > u.uenmax) {
-            if (!rn2(3)) {
+//            if (!rn2(3)) {
                 u.uenmax++;
                 if (u.uenmax > u.uenpeak)
                     u.uenpeak = u.uenmax;
-            }
+//            }
             u.uen = u.uenmax;
         }
         if (old_uen != u.uen) {
@@ -1180,7 +1182,7 @@ eye_of_newt_buzz(struct permonst *ptr)
                     old_uenmax != u.uenmax ? "moderate" : "mild");
             gc.context.botl = 1;
         }
-    }
+//    }
 }
 
 DISABLE_WARNING_FORMAT_NONLITERAL
