@@ -1122,7 +1122,7 @@ fill_ordinary_room(struct mkroom *croom)
         mkfount(croom);
     if (!rn2(60))
         mksink(croom);
-    if (!rn2(60))
+    if (!rn2(10))
         mkaltar(croom);
     if (!rn2(30 + (depth(&u.uz) * 5)))
         mktree(croom);
