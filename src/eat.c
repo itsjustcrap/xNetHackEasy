@@ -1168,10 +1168,10 @@ eye_of_newt_buzz(struct permonst *ptr)
         int old_uen = u.uen, old_uenmax = u.uenmax;
         // always bump nrg on newt eat,
         // but reduce bump value
-        u.uen += 1;
+        u.uen += 2;
         if (u.uen > u.uenmax) {
 //            if (!rn2(3)) {
-                u.uenmax++;
+                u.uenmax+=2;
                 if (u.uenmax > u.uenpeak)
                     u.uenpeak = u.uenmax;
 //            }

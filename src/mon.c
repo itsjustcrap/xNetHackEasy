@@ -3237,8 +3237,8 @@ corpse_chance(
     if (LEVEL_SPECIFIC_NOCORPSE(mdat))
         return FALSE;
 
-    if (((bigmonst(mdat) || mdat == &mons[PM_LIZARD]) && !mon->mcloned)
-        || is_golem(mdat) || is_mplayer(mdat) || is_rider(mdat) || mon->isshk)
+    if (  ( (bigmonst(mdat) || mdat == &mons[PM_LIZARD]) && !mon->mcloned)
+        || is_golem(mdat) || is_mplayer(mdat) || is_rider(mdat) || is_newt(mdat) || mon->isshk)
         return TRUE;
     tmp = 2 + ((mdat->geno & G_FREQ) < 2) + verysmall(mdat);
     return (boolean) !rn2(tmp);
