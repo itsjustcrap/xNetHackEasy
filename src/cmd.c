@@ -973,42 +973,45 @@ domonability(void)
 int
 enter_explore_mode(void)
 {
-    if (discover) {
-        You("are already in explore mode.");
-    } else if (iflags.debug_fuzzer) {
-        ; /* do nothing; explore mode significantly limits the fuzzer */
-    } else {
-        const char *oldmode = !wizard ? "normal game" : "debug mode";
+	pline("No explore mode!");
+	return 0;
 
-#ifdef SYSCF
-#if defined(UNIX)
-        if (!sysopt.explorers || !sysopt.explorers[0]
-            || !check_user_string(sysopt.explorers)) {
-            if (!wizard) {
-                You("cannot access explore mode.");
-                return ECMD_OK;
-            } else {
-                pline(
-                 "Note: normally you wouldn't be allowed into explore mode.");
-                /* keep going */
-            }
-        }
-#endif
-#endif
-        pline("Beware!  From explore mode there will be no return to %s,",
-              oldmode);
-        if (paranoid_query(ParanoidQuit,
-                           "Do you want to enter explore mode?")) {
-            discover = TRUE;
-            wizard = FALSE;
-            clear_nhwindow(WIN_MESSAGE);
-            You("are now in non-scoring explore mode.");
-        } else {
-            clear_nhwindow(WIN_MESSAGE);
-            pline("Continuing with %s.", oldmode);
-        }
-    }
-    return ECMD_OK;
+//    if (discover) {
+//        You("are already in explore mode.");
+//    } else if (iflags.debug_fuzzer) {
+//        ; /* do nothing; explore mode significantly limits the fuzzer */
+//    } else {
+//        const char *oldmode = !wizard ? "normal game" : "debug mode";
+//
+//#ifdef SYSCF
+//#if defined(UNIX)
+//        if (!sysopt.explorers || !sysopt.explorers[0]
+//            || !check_user_string(sysopt.explorers)) {
+//            if (!wizard) {
+//                You("cannot access explore mode.");
+//                return ECMD_OK;
+//            } else {
+//                pline(
+//                 "Note: normally you wouldn't be allowed into explore mode.");
+//                /* keep going */
+//            }
+//        }
+//#endif
+//#endif
+//        pline("Beware!  From explore mode there will be no return to %s,",
+//              oldmode);
+//        if (paranoid_query(ParanoidQuit,
+//                           "Do you want to enter explore mode?")) {
+//            discover = TRUE;
+//            wizard = FALSE;
+//            clear_nhwindow(WIN_MESSAGE);
+//            You("are now in non-scoring explore mode.");
+//        } else {
+//            clear_nhwindow(WIN_MESSAGE);
+//            pline("Continuing with %s.", oldmode);
+//        }
+//    }
+//    return ECMD_OK;
 }
 
 /* #wizwish command - wish for something */
