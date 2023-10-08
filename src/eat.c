@@ -542,6 +542,9 @@ done_eating(boolean message)
         useupf(piece, 1L);
 
     gc.context.victual = zero_victual; /* victual.piece = 0, .o_id = 0 */
+
+	You_feel("Done eating, hunger %i", u.uhunger );
+
 }
 
 void
@@ -1167,7 +1170,7 @@ eye_of_newt_buzz(struct permonst *ptr)
 	// always bump nrg on newt eat,
 	// but reduce bump value
 	u.uenmax+=1;
-	You_feel("a buzz.");
+	You_feel("a buzz. hunger %i", u.uhunger );
 	gc.context.botl = 1;
 }
 
