@@ -471,6 +471,9 @@ maybe_extend_timed_resist(int prop)
 static int
 eatfood(void)
 {
+
+	You("Start eating, hunger %i", u.uhunger );
+
     struct obj *food = gc.context.victual.piece;
 
     if (food && !carried(food) && !obj_here(food, u.ux, u.uy))
@@ -543,7 +546,7 @@ done_eating(boolean message)
 
     gc.context.victual = zero_victual; /* victual.piece = 0, .o_id = 0 */
 
-	You_feel("Done eating, hunger %i", u.uhunger );
+	You("Done eating, hunger %i", u.uhunger );
 
 }
 
