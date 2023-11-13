@@ -112,13 +112,15 @@ static struct trobj Ranger[] = {
 #define RAN_BOW 1
 #define RAN_TWO_ARROWS 2
 #define RAN_ZERO_ARROWS 3
-    { DAGGER, 1, WEAPON_CLASS, 1, UNDEF_BLESS },
-    { BOW, 1, WEAPON_CLASS, 1, UNDEF_BLESS },
+    { SCIMITAR, 2, WEAPON_CLASS, 1, UNDEF_BLESS },
+    { BOW, 3, WEAPON_CLASS, 1, UNDEF_BLESS },
     { ARROW, 2, WEAPON_CLASS, 50, UNDEF_BLESS },
     { ARROW, 0, WEAPON_CLASS, 30, UNDEF_BLESS },
-    { CLOAK_OF_DISPLACEMENT, 2, ARMOR_CLASS, 1, UNDEF_BLESS },
+    { CLOAK_OF_DISPLACEMENT, 4, ARMOR_CLASS, 1, UNDEF_BLESS },
     { CRAM_RATION, 0, FOOD_CLASS, 4, 0 },
-    { BEARTRAP, 0, TOOL_CLASS, 2, 0 },
+	{ RIN_SLOW_DIGESTION,0,RING_CLASS,1,0},
+    { LOCK_PICK, 0, TOOL_CLASS, 1, 0 },
+    { POT_WATER, 0, POTION_CLASS, 4, 0 },
     { 0, 0, 0, 0, 0 }
 };
 static struct trobj Rogue[] = {
@@ -783,8 +785,8 @@ u_init(void)
          */
         break;
     case PM_RANGER:
-        Ranger[RAN_TWO_ARROWS].trquan = rn1(10, 50);
-        Ranger[RAN_ZERO_ARROWS].trquan = rn1(10, 30);
+        Ranger[RAN_TWO_ARROWS].trquan = 75;
+        Ranger[RAN_ZERO_ARROWS].trquan = 25;
         ini_inv(Ranger);
         knows_class(WEAPON_CLASS); /* bows, arrows, spears only */
         skill_init(Skill_Ran);
