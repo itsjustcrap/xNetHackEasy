@@ -324,7 +324,7 @@ const struct Role roles[NUM_ROLES+1] = {
       MH_HUMAN | MH_ELF | MH_GNOME | MH_ORC | ROLE_MALE | ROLE_FEMALE
           | ROLE_NEUTRAL | ROLE_CHAOTIC,
       /* Str Int Wis Dex Con Cha */
-      { 13, 13, 13, 9, 13, 7 },
+      { 16, 16, 16, 16, 16, 9 },
       { 30, 10, 10, 20, 20, 10 },
       /* Init   Lower  Higher */
       { 13, 0, 0, 6, 1, 0 }, /* Hit points */
@@ -566,7 +566,7 @@ const struct Race races[NUM_RACES+1] = {
         MH_HUMAN | MH_ELF | MH_DWARF,
         /*  Str    Int Wis Dex Con Cha */
         { 3, 3, 3, 3, 3, 3 },
-        { STR18(50), 16, 16, 18, 18, 16 },
+        { STR18(50), 18, 18, 18, 18, 13 },
         /* Init   Lower  Higher */
         { 1, 0, 0, 1, 0, 0 }, /* Hit points */
         { 1, 0, 1, 0, 1, 0 }  /* Energy */
