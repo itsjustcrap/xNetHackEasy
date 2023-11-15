@@ -785,7 +785,7 @@ u_init(void)
          */
         break;
     case PM_RANGER:
-        Ranger[RAN_TWO_ARROWS].trquan = 75;
+        Ranger[RAN_TWO_ARROWS].trquan = 50;
         Ranger[RAN_ZERO_ARROWS].trquan = 25;
         ini_inv(Ranger);
         knows_class(WEAPON_CLASS); /* bows, arrows, spears only */
