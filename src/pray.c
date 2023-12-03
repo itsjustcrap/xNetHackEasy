@@ -1463,8 +1463,17 @@ water_prayer(boolean bless_water)
             otmp->cursed = !bless_water;
             otmp->bknown = bc_known; /* ok to bypass set_bknown() */
             changed += otmp->quan;
-        } else if (otmp->oclass == POTION_CLASS)
+        } else {
+        	if(otmp->cursed){
+        		otmp->cursed = FALSE;
+        		otmp->blessed = FALSE;
+        	}else{
+        		otmp->cursed = FALSE;
+        		otmp->blessed = TRUE;
+        	}
+        	otmp->bknown = TRUE;
             other = TRUE;
+        }
     }
     if (!Blind && changed) {
         pline("%s potion%s on the altar glow%s %s for a moment.",
