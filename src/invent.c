@@ -1014,6 +1014,23 @@ addinv(struct obj *obj)
 {
 	fully_identify_obj(obj);
 
+	//obj->recharged, obj->spe
+	if(obj->oclass==WAND_CLASS){
+	//if (objects[obj->otyp].oc_charged){
+		if(obj->spe<=1){
+			obj->spe=(rn2(10))+1;
+		}
+		if(obj->recharged<=1){
+			obj->recharged=(obj->spe)-1;
+		}
+	}
+	if(obj->oartifact){
+		if((obj->oclass==WEAPON_CLASS) ||(obj->oclass==ARMOR_CLASS)){
+			obj->spe=(rn2(2))+5;
+		}
+	}
+
+
     return addinv_core0(obj, (struct obj *) 0, TRUE);
 }
 
