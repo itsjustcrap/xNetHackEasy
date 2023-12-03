@@ -1172,7 +1172,7 @@ eye_of_newt_buzz(struct permonst *ptr)
 {
 	// always bump nrg on newt eat,
 	// but reduce bump value
-	u.uenmax+=1;
+	u.uenmax+=(rn2(3)+1);
 	You_feel("a buzz. hunger %i", u.uhunger );
 	gc.context.botl = 1;
 }
