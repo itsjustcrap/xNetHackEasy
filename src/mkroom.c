@@ -841,7 +841,8 @@ mktemple(void)
         lev->altarmask = AM_NONE; /* Moloch */
     }
     priestini(&u.uz, sroom, shrine_spot->x, shrine_spot->y, FALSE);
-    lev->altarmask |= AM_SHRINE;
+    //lev->altarmask |= AM_SHRINE;
+    lev->altarmask = Align2amask(u.ualign.type);
     gl.level.flags.has_temple = 1;
     return sroom;
 }
@@ -867,7 +868,7 @@ mkseminary(void)
     }
     sroom->rtype = SEMINARY;
 
-    aligntyp altaralign = Amask2align(levl[ss->x][ss->y].altarmask & AM_MASK);
+    aligntyp altaralign = Amask2align(u.ualign.type);
 
     for (i = rn1(4,1); i > 0; --i) {
         x = somex(sroom);
