@@ -519,8 +519,8 @@ pick_lock(
                           && (flags.autounlock & AUTOUNLOCK_APPLY_KEY) != 0) {
                     c = 'q';
                     if (pick != &dummypick) {
-                        Sprintf(qbuf, "Unlock it with %s?", yname(pick));
-                        c = ynq(qbuf);
+                        Sprintf(qbuf, "Trying to open it with %s ...", yname(pick));
+                        c = 'y';
                     }
                     if (c != 'y')
                         return PICKLOCK_DID_NOTHING;
@@ -655,7 +655,8 @@ pick_lock(
                         (door->doormask & D_LOCKED) ? "Unlock" : "Lock",
                         autounlock ? " with " : "",
                         autounlock ? yname(pick) : "");
-                c = ynq(qbuf);
+                //c = ynq(qbuf);
+                c='y';
                 if (c != 'y')
                     return PICKLOCK_DID_NOTHING;
 
