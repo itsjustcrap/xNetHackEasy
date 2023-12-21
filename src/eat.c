@@ -1170,9 +1170,8 @@ DISABLE_WARNING_FORMAT_NONLITERAL
 static void
 eye_of_newt_buzz(struct permonst *ptr)
 {
-	// always bump nrg on newt eat,
-	// but reduce bump value
-	u.uenmax+=(rn2(3)+1);
+	int vx=rn2(3)+2;
+	u.uenmax+=(vx);
 	You_feel("a buzz. hunger %i", u.uhunger );
 	gc.context.botl = 1;
 }
