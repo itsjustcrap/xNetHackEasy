@@ -324,8 +324,11 @@ const struct Role roles[NUM_ROLES+1] = {
       MH_HUMAN | MH_ELF | MH_GNOME | MH_ORC | ROLE_MALE | ROLE_FEMALE
           | ROLE_NEUTRAL | ROLE_CHAOTIC,
       /* Str Int Wis Dex Con Cha */
-      { 11, 11, 11, 11, 11, 9 },
+      { 15, 15, 15, 15, 15, 6 },
       { 30, 10, 10, 20, 20, 10 },
+	  //	  barbarian stats for reference
+	  //      { 16, 7, 7, 15, 16, 6 },
+	  //      { 30, 6, 7, 20, 30, 7 },
       /* Init   Lower  Higher */
       { 13, 0, 0, 6, 1, 0 }, /* Hit points */
       { 0, 2, 0, 1, 0, 1 }, /* Energy */

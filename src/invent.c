@@ -1017,11 +1017,10 @@ addinv(struct obj *obj)
 	//obj->recharged, obj->spe
 	if(obj->oclass==WAND_CLASS){
 	//if (objects[obj->otyp].oc_charged){
-		if(obj->spe<=1){
-			obj->spe=(rn2(10))+1;
-		}
-		if(obj->recharged<=1){
-			obj->recharged=(obj->spe)-1;
+		if((obj->spe<=5)||(obj->recharged<=5)){
+			int r=rn2(4);
+			obj->spe=r+4;
+			obj->recharged=r+4;
 		}
 	}
 	if(obj->oartifact){
@@ -1029,7 +1028,11 @@ addinv(struct obj *obj)
 			obj->spe=(rn2(2))+5;
 		}
 	}
-
+	if(obj->oclass==TOOL_CLASS){
+		if((obj->spe>=10)&&(obj->recharged<8)){
+					obj->recharged=rn2(obj->spe - 5)+5;
+				}
+	}
 
     return addinv_core0(obj, (struct obj *) 0, TRUE);
 }
